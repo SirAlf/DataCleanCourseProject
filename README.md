@@ -7,7 +7,7 @@ DataCleanCourseProject
 ===============================================================================
 
 ##### STEP 1: DOWNLOAD ZIPPED FOLDER FROM WEBSITE, THEN EXTRACT UNZIPPED FOLDER TO R-WORKING DIRECTORY
-The script initially downloaded the zip folder from the website ("UCI HAR Dataset.zip"), and saved it as "projectData.zip".  Then "projectData.zip" will be "unzipped" to extract the sub-folders and files of the test and train datasets).  ***The extracted folder that would be located the working directory is called "UCI HAR Dataset"***.  The contents of this folder is described below.  
+The script initially downloaded the zip folder from the website ("UCI HAR Dataset.zip"), and saved it as "projectData.zip".  Then "projectData.zip" will be "unzipped" to extract the sub-folders and files of the test and train datasets).  ***The extracted folder that would be located in the working directory is called "UCI HAR Dataset"***.  The contents of this folder is described below.  
 Finally, as cleanup, the copy of "projectData.zip" was deleted by the unlink() command.   
 ##### CONTENTS OF DOWNLOADED/EXTRACTED FOLDER ("UCI HAR Dataset")
 The "UCI HAR Dataset" folder contains a number of files and folders, but only the following files were used for processing into tidy data:  
@@ -21,7 +21,7 @@ The "UCI HAR Dataset" folder contains a number of files and folders, but only th
   * **"y_train"**		(data frame of ActivityID's) 	7352 rows x 1 column  
   * **"x_train"**		(data frame of 561 measuremnt variables) 	7352 rows x 561 columns  
 
-##### STEP 2: READ THEN COLUMN-BIND EACH OF subject\_test/subject\_train and y\_test/y\_train DATAFRAMES ---> subject.y_test/subject.y_train DATAFRAMES
+##### STEP 2: READ, THEN COLUMN-BIND EACH OF subject\_test/subject\_train and y\_test/y\_train DATAFRAMES to create subject.y_test and subject.y_train DATAFRAMES
 The subject\_test and y\_test dataframes were read and column names (SubjectID and ActivityID) were attached
 (The new dataframe was called subject.y\_test) 
 The subject\_train and y\_train dataframes was read and column names (SubjectID and ActivityID) were attached
