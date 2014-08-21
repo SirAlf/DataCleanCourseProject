@@ -23,7 +23,8 @@ The "UCI HAR Dataset" folder contains a number of files and folders, but only th
 
 ##### STEP 2: READ, THEN COLUMN-BIND EACH OF subject\_test/subject\_train and y\_test/y\_train DATAFRAMES to create subject.y_test and subject.y_train DATAFRAMES
 The subject\_test and y\_test dataframes were read and column names (SubjectID and ActivityID) were attached
-(The new dataframe was called subject.y\_test) 
+(The new dataframe was called subject.y\_test) .  
+
 The subject\_train and y\_train dataframes was read and column names (SubjectID and ActivityID) were attached
 (The new dataframe was called subject.y\_test)
 
@@ -32,7 +33,8 @@ Before reading the X\_test and X\_train data frames, the features data frame was
 After the vector of feature names were obtained, the X\_test and X\_train dataframes were read, and the vector of feature names were used as column names
 
 ##### STEP 4:  COLUMN-BIND EACH OF  x\_test/x\_train DATAFRAMES WITH subject.y\_test/subject.y\_train DATAFRAMES
-The new dataframe from the "cbind"ing of x\_test and x\_test data frames was called "***test\_dataset***"
+The new dataframe from the "cbind"ing of x\_test and x\_test data frames was called "***test\_dataset***"  
+
 The new dataframe from the "cbind"ing of x\_train and x\_train data frames was called "***train_dataset***"
 
 ##### STEP 5:  ROW-BIND THE test_data and train_data DATAFRAMES INTO A MERGED_DATASET
