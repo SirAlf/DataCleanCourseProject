@@ -14,18 +14,20 @@ The "UCI HAR Dataset" folder contains a number of files and folders, but only th
 1. **"activity labels"**: file containing a data frame of ActivityID's with the corresponding Activity name.  
 2. **"features"**:  a file containing the (561) descriptive names of data fields that can be used as column names for the test and train datasets (x\_test and x\_train).  
 3. "test" and "train" sub-FOLDERs containing the following files  
-  * **"subject_test"** 	(data frame of SubjectID's) 2947 rows x 1 column  
-  * **"y_test"**		(data frame of ActivityID's) 	2947 rows x 1 column  
-  * **"x_test"**		(data frame of 561 measuremnt variables) 2947 rows x 561 columns  
-  * **"subject_train"** 	(data frame of SubjectID's) 7352 rows x 1 column  
-  * **"y_train"**		(data frame of ActivityID's) 	7352 rows x 1 column  
-  * **"x_train"**		(data frame of 561 measuremnt variables) 	7352 rows x 561 columns  
+  * **"subject\_test"** 	(data frame of SubjectID's) 2947 rows x 1 column  
+  * **"y\_test"**		(data frame of ActivityID's) 	2947 rows x 1 column  
+  * **"x\_test"**		(data frame of 561 measuremnt variables) 2947 rows x 561 columns  
+  * **"subject\_train"** 	(data frame of SubjectID's) 7352 rows x 1 column  
+  * **"y\_train"**		(data frame of ActivityID's) 	7352 rows x 1 column  
+  * **"x\_train"**		(data frame of 561 measuremnt variables) 	7352 rows x 561 columns  
 
 ##### STEP 2: READ, THEN COLUMN-BIND EACH OF subject\_test/subject\_train and y\_test/y\_train DATAFRAMES to create subject.y\_test and subject.y\_train DATAFRAMES
-The subject\_test and y\_test dataframes were read and column names (SubjectID and ActivityID, respectively) were attached.  
+*(Step 2 assumes that the "***UCI HAR Dataset***" folder containing the sub-folders and needed files, ***resides in the working directory***)
+
+The *subject\_test* and *y\_test*  dataframes were read and column names (SubjectID and ActivityID, respectively) were attached.  
 The dataframes were then "cbind"-ed and the new, combined data frame was called ***subject.y\_test*** .  
 
-The subject\_train and y\_train dataframes were read and column names (SubjectID and ActivityID, respectively) were attached.   
+The *subject\_train* and *y\_train dataframes* were read and column names (SubjectID and ActivityID, respectively) were attached.   
 The dataframes were then "cbind"-ed and the new, combined data frame was called ***subject.y_train*** .
 
 ##### STEP 3:  READ X\_test , READ X\_train DATAFRAMES, THEN ATTACH COLUMN NAMES TO EACH OF X\_test and X\_train DATAFRAMES FROM THE FEATURE NAMES PROVIDED IN THE "features.txt" file.  
@@ -68,24 +70,23 @@ for Activity.
 
 The "***Activity***" column of the Extracted_Dataset was also formalized as a factor with 6 levels of "activities"
 
-##### STEP 9:  CREATE SECOND, INDEPENDENT (FINAL) TIDY DATA SET WITH THE AVERAGE OF EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJECT
+##### STEP 9:  CREATE SECOND, INDEPENDENT (initially, "***PreFinal\_TidyData***" ) WITH THE AVERAGE OF EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJET
 The *dplyr* package was again used to conveniently obtain the averages of the column variables, according to Activity and SubjectID.  The new dataframe was called "***PreFinal_TidyData***".  
 
-In preparation for making the Final Tidy Data, the column names were modified in order to comply with the requirements of
-requirements for tidy data, i.e.: (1) *human readable*, (2) *no punctuations and/or symbols*.   
+In preparation for making the Final Tidy Data, the column names were modified in order to comply with the requirements for tidy data, i.e.: (1) *human readable*, (2) *no punctuations and/or symbols*.   
 
 All forms of punctuation in the original column names were removed, and modified to make it more human readable.  
 This resulted in very long file names, and thus *CamelCase* was used to improve readability.  Modification of column names were done by text manipulation via the stringr package.  These operations were done in Step 10.
 
-##### STEP 10: REPLACE COLUMN NAMES OF FINAL_TIDYDATA WITH MORE DESCRIPTIVE LABELS COMPLYING REQUIREMENTS FOR TIDY DATA:  TEXT MANIPULATION VIA stringr PACKAGE 
+##### STEP 10: REPLACE COLUMN NAMES OF FINAL_TIDYDATA WITH MORE DESCRIPTIVE LABELS COMPLYING REQUIREMENTS FOR TIDY DATA:  TEXT MANIPULATION VIA stringr PACKAGE ---> THEN FINALIZE "***Final\_TidyData***"
 
 The *stringr* package was used to convert the raw column names into those which comply with the requirement for column names of tidy data:
 Among these are: (1) *human readable names*, (2) *no punctuations and/or symbols*.
 
 CamelCase had to be used because the column names were quite very long.   
-The final dataframe of tidy data was called "***Final_TidyData***".
+The final dataframe of tidy data was called "***Final_TidyData***".  
 
-##### STEP 11: SAVE FINAL TIDY DATA SET AS TXT FILE IN WORKING DIRECTORY
+##### STEP 11: SAVE "*Final_TidyData*" DATA SET AS TXT FILE IN WORKING DIRECTORY
 
 The Final_TidyData was converted to a text file named, "Final_TidyData.txt", in compliance with the instructions of the Course Project.  
  
