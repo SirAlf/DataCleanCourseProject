@@ -63,15 +63,16 @@
 
 ## STEP 3: READ X_test , READ X-train DATAFRAMES
 ##		ATTACH COLUMN NAMES TO EACH OF X_test and X_train
-##		FROM THE FEATURE NAMES PROVIDED IN THE features DATAFRAME
+##		FROM THE FEATURE NAMES PROVIDED IN THE "features.text" file
 
-	# First extract vector of feature names from features dataframe
+	# First read "features.txt" into R as a dataframe, and then 
+	# extract vector of feature (i.e., column) names ("features.vec")
 		features <- read.table("UCI HAR Dataset/features.txt", 
 			header = FALSE, sep = "", stringsAsFactors=FALSE)
 		features.vec <- features$V2   #vector of feature names  #FEATURES VECTOR 
 	
 
-	# Read X_test and attach feature names
+	# Read X_test and attach feature (i.e., column) names from features.vec
 		x_test <- read.table("UCI HAR Dataset/test/x_test.txt", 
 			header = FALSE, sep = "", stringsAsFactors=FALSE)
 		x_test <- tbl_df(x_test) # for screen printing convenience
@@ -79,7 +80,7 @@
 		colnames(x_test) <- features.vec
 
 
-	# Read X_train and attach feature names
+	# Read X_train and attach feature (i.e., column) names from features.vec
 		x_train <- read.table("UCI HAR Dataset/train/x_train.txt", 
 			header = FALSE, sep = "", stringsAsFactors=FALSE)
 		x_train <- tbl_df(x_train)  # for screen printing convenience
@@ -87,8 +88,8 @@
 		colnames(x_train) <- features.vec
 
 
-## STEP 4: COLUMN-BIND x_test DATAFRAME WITH subject.y_test DATAFRAME ---> test_dataset
-## 	     COLUMN-BIND x_train DATAFRAME WITH subject.y_train DATAFRAME ---> train_dataset
+## STEP 4: COLUMN-BIND x_test DATAFRAME WITH subject.y_test DATAFRAME to form ---> test_dataset DF
+## 	     COLUMN-BIND x_train DATAFRAME WITH subject.y_train DATAFRAME to form ---> train_dataset DF
 
 	test_dataset <- cbind(subject.y_test, x_test)
 	train_dataset <- cbind(subject.y_train, x_train)
@@ -104,7 +105,8 @@
 ## STEP 6:  ASSEMBLE "ACTIVITY_LABELS" DATA FRAME MATCHING 
 ## 		ACTIVITYID WITH ACTIVITY NAME
 ##		(This will be used as a "lookup table" to properly match 
-## 		Activity (name) with ActivityID's in the Merged_Dataset
+## 		Activity (name) with ActivityID's in the Merged_Dataset 
+##		 (via "merge" function, to be done in Step 7)
 
 
 	activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt", 
@@ -134,6 +136,7 @@
 
 ## STEP 8:  EXTRACT FROM MERGED DATASET, THE COLUMNS OF MEAN AND STD DEVIATION VARIABLES 
 ##		FOR EACH MEASUREMENT (Store in data frame, Extracted_Dataset) *dplyr package used
+##		(README.md explains the basis of obtaining the feature columns)
 
 	Extracted_Dataset <- Merged_Dataset %>%
 		select(SubjectID, Activity, contains(".[Mm]ean."), 
@@ -148,6 +151,8 @@
 
 ## STEP 9:  CREATE SECOND, INDEPENDENT (FINAL) TIDY DATA SET WITH THE AVERAGE OF 
 ## 		EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJECT *dplyr package used
+##		(This is called "PreFinal_TidyData" DF, which must still undergo 
+##			text processing of column names in Step 10, as explained in README.md )
 
 	PreFinal_TidyData <- Extracted_Dataset %>%
 		group_by(Activity, SubjectID) %>%
@@ -158,6 +163,7 @@
 ## STEP 10: REPLACE COLUMN NAMES OF FINAL_TIDYDATA WITH MORE DESCRIPTIVE
 ## 		LABELS COMPLYING REQUIREMENTS FOR TIDY DATA (HUMAN READABLE, NO DOTS/SYMBOLS,...)
 ##		(stringr package and regular expressions used).Please see README
+##		THEN MAKE THE "Final_TidyData" DATAFRAME
 
 	# stringr package used to manipulate column titles (package has already been called above)
 		
@@ -184,14 +190,11 @@
 
 
 ## STEP 11:  SAVE FINAL TIDY DATA SET AS TXT FILE IN WORKING DIRECTORY
-##		The argument sep=" " was used, so this must also be used for
-##		when reading the file by read.table
 
 	write.table(Final_TidyData, "Final_TidyData.txt", row.names=FALSE)
 
-##	NOTE: Please use: Tidy_Data <- read.table("Final_TidyData.txt", header=TRUE) 
-## 			to read the text file back  into R
-	
+##	NOTE: In order to read back the text file into R, please use: 
+##		Tidy_Data <- read.table("Final_TidyData.txt", header=TRUE) 
 
 
 
