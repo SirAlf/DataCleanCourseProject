@@ -96,6 +96,7 @@ Among these are: (1) *human readable names*, (2) *no punctuations and/or symbols
 * Finally, the **`arrange()`** command was used to make the primary ordering of the rows according to *Activity*
 
 >Since the ***PreFinal\_TidyData*** now contained the *average values* (and not anymore the raw values) of the PreFinal\_TidyData, the *column names were ReLabelled* to reflect that the values in this dataframe were already average values.
+The *stringr* package was used for this purpose, particularly the ***`str_replace`*** command.   
 
 >The ReLabelled *PreFinal\_TidyData* DF was finalized as the ***Final\_TidyData***, containing 180 rows (30 SubjectID''s x 6 Activity's) and 68 columns ( 1 for Activity + 1 for SubjectID + 66 for the averages of theextracted mean and std of measurement signals (pls refer to CodeBook and README))
  
