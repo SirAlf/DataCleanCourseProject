@@ -24,11 +24,11 @@ Finally, as cleanup, the copy of "projectData.zip" was deleted from the working 
 ##### STEP 2: READ, THEN COLUMN-BIND EACH OF subject\_test/subject\_train and y\_test/y\_train DATAFRAMES to create subject.y\_test and subject.y\_train DATAFRAMES
 >*(Step 2 assumes that the "***UCI HAR Dataset***" folder containing the sub-folders and needed files, ***resides in the working directory***)
 
->The *subject\_test* and *y\_test*  dataframes were read and column names (SubjectID and ActivityID, respectively) were attached.  
-The dataframes were then "cbind"-ed and the new, combined data frame was called ***subject.y\_test***.  
+>The *subject\_test* (2947 rows x 1 column) and *y\_test*  (2947 rows x 1 column)  dataframes were read and column names (SubjectID and ActivityID, respectively) were attached.  
+The dataframes were then "cbind"-ed and the new, combined data frame was called ***subject.y\_test*** (2947 rows x 2 columns).  
 
->Similarly, the *subject\_train* and *y\_train dataframes* were also read and column names (SubjectID and ActivityID, respectively) were attached.   
-The dataframes were then "cbind"-ed and the new, combined data frame was called ***subject.y_train*** .  
+>Similarly, the *subject\_train* (7352 rows x 1 column)  and *y\_train (7352 rows x 1 column) dataframes* were also read and column names (SubjectID and ActivityID, respectively) were attached.   
+The dataframes were then "cbind"-ed and the new, combined data frame was called ***subject.y_train***  (7352 rows x 2 columns)  .  
 
 >The *subject.y\_test* DF will eventually be "cbind"-ed to the *X\_test* DF, while the *subject.y_train* DF will eventually be "cbind"-ed to the *X\_train* DF.  In order to do this, the *X\_test*  and  *X\_train* data set files must first be read into R as a dataframe, and then given column names as explained in Steps 3 and 4. 
 
@@ -36,15 +36,18 @@ The dataframes were then "cbind"-ed and the new, combined data frame was called 
 ##### STEP 3:  READ X\_test , READ X\_train DATAFRAMES, THEN ATTACH COLUMN NAMES TO EACH OF X\_test and X\_train DATAFRAMES FROM THE FEATURE NAMES PROVIDED IN THE "features.txt" file.  
 >Before reading the *X\_test* and *X\_train* data frames, the "features.txt" file was first read into a data frame and the vector of the feature names (i.e. column names of measured variables) was extracted (i.e., subsetted out) as a vector,  ***features.vec***.  
 
->The *X\_test* and *X\_train* dataset files  were then read as dataframes in R, and column names were attached to each, using the previously obtained ***features.vec***.  
+>The *X\_test* (2947 rows x 561 columns) and *X\_train*  (7352 rows x 561 columns) dataset files  were then read as dataframes in R, and column names were attached to each, using the previously obtained ***features.vec***.  
 
 ##### STEP 4:  COLUMN-BIND x\_test data frame with subject.y\_test data frame.  REPEAT BY COLUMN BIND-ing x\_train dataframe with subject.y\_train data frame
 >The new dataframe from the "cbind"ing of *x\_test* and *subject.y\_test* data frames was called "***test\_dataset***"  
-The new dataframe from the "cbind"ing of *x\_train* and *subject.y\_train* data frames was called "***train_dataset***".  
+The new dataframe from the "cbind"ing of *x\_train* and *subject.y\_train* data frames was called "***train_dataset***".   
+
+>The   *test_dataset*  dataframe has 2847 rows x 561 columns.  
+The   *test_dataset*  dataframe has 7352 rows x 561 columns. 
 
 
 ##### STEP 5:  ROW-BIND THE test\_data and train\_data DATAFRAMES INTO A MERGED_DATASET
->The resulting data frame from the row-binding (rbind) of the *test\_dataset* and the *train\_dataset* was called "**Merged_Dataset**"
+>The resulting data frame from the row-binding (rbind) of the *test\_dataset* and the *train\_dataset* was called "**Merged_Dataset**"  (10299 rows x 561 columns)
 
 ##### STEP 6:  ASSEMBLE "ACTIVITY_LABELS" DATA FRAME MATCHING ACTIVITYID WITH ACTIVITY NAME
 >The activity labels data frame has two columns containing the "*ActivityID*" and "*Activity*" (i.e., activity name).
@@ -54,7 +57,7 @@ This was used to properly match *Activity* (name) with *ActivityID*'s in the Mer
 
 >First, a *merging "index" column* was added into the *Merged\_Dataset*, in order to preserve the row order of the *Merged\_Dataset* dataframe when the `merge` function is  applied.    Inevitably, the `merge` function will destroy the row order of the merged dataframe (which would not be desirable in this case).
 The orginal row order can be restored by using the "merging index".   
-Once this was done, the "activity_labels" DF was merged with the *Merged\_Dataset* DF.  The merged dataframe was now the "updated"  ***Merged\_Dataset**
+Once this was done, the "activity_labels" DF was merged with the *Merged\_Dataset* DF.  The merged dataframe was now the "updated"  ***Merged\_Dataset** .  
 
 >After merging, the *Merged\_Dataset* DF would already contain the column of "Activity" (i.e., activity names).   
 
