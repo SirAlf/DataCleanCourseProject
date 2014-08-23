@@ -133,7 +133,6 @@
 	Merged_Dataset <- tbl_df(Merged_Dataset) #dplyr command for screen printing convenience
 
 
-
 ## STEP 8:  EXTRACT FROM MERGED DATASET, THE COLUMNS OF MEAN AND STD DEVIATION VARIABLES 
 ##		FOR EACH MEASUREMENT (Store in data frame, Extracted_Dataset) *dplyr package used
 ##		(README.md explains the basis of obtaining the feature columns)
@@ -148,26 +147,12 @@
 	Extracted_Dataset$Activity <- factor(Extracted_Dataset$Activity, 
 			levels=activities, labels=activities)
 
-
-## STEP 9:  CREATE SECOND, INDEPENDENT (initially named, "PreFinal_TidyData") TIDY DATA SET WITH THE AVERAGE OF 
-## 		EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJECT *dplyr package used
-##		(The "PreFinal_TidyData" DF, must still undergo 
-##			text processing of column names in Step 10, as explained in README.md )
-
-	PreFinal_TidyData <- Extracted_Dataset %>%
-		group_by(Activity, SubjectID) %>%
-		summarise_each(funs(mean)) %>%
-		arrange(Activity)
-
-
-## STEP 10: REPLACE COLUMN NAMES OF PreFinal_TidyData DF WITH MORE DESCRIPTIVE
-## 		LABELS COMPLYING REQUIREMENTS FOR TIDY DATA (HUMAN READABLE, NO DOTS/SYMBOLS,...)
-##		(stringr package and regular expressions used).Please see README
-##		THEN FINALIZE TO MAKE THE "Final_TidyData" DATAFRAME
+## STEP 9:  RENAME COLUMN NAMES OF Extracted_Dataset INTO MORE DESCRIPTIVE LABELS FOLLOWING
+##		FOLLOWING THE CONVENTIONS OF NAMING COLUMN NAMES OF TIDY DATA
 
 	# stringr package used to manipulate column titles (package has already been called above)
 		
-	b <- colnames(PreFinal_TidyData)
+	b <- colnames(Extracted_Dataset)
 	pattern <- "\\(\\)"; b <- str_replace_all(b, pattern, " ")
 	pattern <- "( -)|-"; b <- str_replace_all(b, pattern, "")
 	pattern <- "tBody"; b <- str_replace(b, pattern, "TimeDependentBody")
@@ -184,7 +169,23 @@
 	pattern <- "Y"; b <- str_replace(b, pattern, "AtYaxis")
 	pattern <- "Z"; b <- str_replace(b, pattern, "AtZaxis")
 
-	colnames(PreFinal_TidyData) <- b
+	colnames(Extracted_Dataset) <- b
+
+
+## STEP 10:  CREATE SECOND, INDEPENDENT (initially named, "PreFinal_TidyData") TIDY DATA SET WITH THE AVERAGE OF 
+## 		EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJECT *dplyr package used
+
+	PreFinal_TidyData <- Extracted_Dataset %>%
+		group_by(Activity, SubjectID) %>%
+		summarise_each(funs(mean)) %>%
+		arrange(Activity)
+
+	# Use stringr package to label column names of PreFinal_TidyData as Averages of the column variable names of PreFinal_TidyData
+		a <- colnames(PreFinal_TidyData)
+		pattern <- "^Time"; a <- str_replace(a, pattern, "AverageTime")
+		pattern <- "^Fourier"; a <- str_replace(a, pattern, "AverageFourier")
+		
+		colnames(PreFinal_TidyData) <- a
 
 	Final_TidyData <- PreFinal_TidyData
 
@@ -195,8 +196,6 @@
 
 ##	NOTE: In order to read back the text file into R, please use: 
 ##		Tidy_Data <- read.table("Final_TidyData.txt", header=TRUE) 
-
-
 
 
 
