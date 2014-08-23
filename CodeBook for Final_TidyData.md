@@ -86,7 +86,7 @@ The following vectors were also obtained and used on the angle() variable:
 
 (3) **mean of "measurment signals"** as defined above :  
 NOTE: Each "measuremnt signal" in a row corresponds to 3 column files, corresponding to X, Y, and Z directions.
-Total columns for mean of measurement signals should be equal to [(8*3)+9=] 33 columns.  
+Total columns for mean of measurement signals should be equal to [(8*3)+9=] 33 "mean" columns.  
 
 
 * tBodyAcc-mean()-XYZ
@@ -109,7 +109,7 @@ Total columns for mean of measurement signals should be equal to [(8*3)+9=] 33 c
 
 (4) **standard deviation (std) of "measurment signals"** as defined above :
 NOTE: Each "measuremnt signal" in a row corresponds to 3 column files, corresponding to X, Y, and Z directions.
-Total columns for standard deviations of measurement signals should be equal to [(8*3)+9=] 33 columns.
+Total columns for standard deviations of measurement signals should be equal to [(8*3)+9=] 33 "std" columns.
 
 * tBodyAcc-std()-XYZ
 * tGravityAcc-std()-XYZ
@@ -129,7 +129,7 @@ Total columns for standard deviations of measurement signals should be equal to 
 * fBodyGyroMag-std()
 * fBodyGyroJerkMag-std()
 
-The tidy data set has a total of **2** ("SubjectID" and "Activity") plus **66** feature names of only the *measurement signals", as defined previously above in this CodeBook,  for a **total of 68 columns** or fields.
+The tidy data set has a total of **2** ("SubjectID" and "Activity") plus **66** feature names (33 "mean" + 33 "std") of only the *measurement signals", as defined previously above in this CodeBook,  for a **total of 68 columns** or fields.
 
 The **180 rows** of the tidy data correspond to the mean of the measurement signals according to type of Activity and SubjectID.  (30 "*SubjectID*"'s x 6 "*Activity*"'s = 180 rows)
 
