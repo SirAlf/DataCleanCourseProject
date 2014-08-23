@@ -28,18 +28,23 @@ The *subject\_test* and *y\_test*  dataframes were read and column names (Subjec
 The dataframes were then "cbind"-ed and the new, combined data frame was called ***subject.y\_test*** .  
 
 The *subject\_train* and *y\_train dataframes* were read and column names (SubjectID and ActivityID, respectively) were attached.   
-The dataframes were then "cbind"-ed and the new, combined data frame was called ***subject.y_train*** .
+The dataframes were then "cbind"-ed and the new, combined data frame was called ***subject.y_train*** .  
+
+The *subject.y\_test* DF will eventually be "cbind"-ed to the *X\_test* DF, while the *subject.y_train* DF will eventually be "cbind"-ed to the *X\_train* DF.  In order to do this, the *X\_test*  and  *X\_train* data set files must first be read into R as a dataframe, and then given column names as explained in Steps 3 and 4. 
+
 
 ##### STEP 3:  READ X\_test , READ X\_train DATAFRAMES, THEN ATTACH COLUMN NAMES TO EACH OF X\_test and X\_train DATAFRAMES FROM THE FEATURE NAMES PROVIDED IN THE "features.txt" file.  
-Before reading the X\_test and X\_train data frames, the "features.txt" file was read into a data frame and the vector of the feature names (i.e. column names of measured variables) was extracted (i.e., subsetted out) as a vector,  ***features.vec***.  
+Before reading the *X\_test* and *X\_train* data frames, the "features.txt" file was read into a data frame and the vector of the feature names (i.e. column names of measured variables) was extracted (i.e., subsetted out) as a vector,  ***features.vec***.  
+
+The *X\_test* and *X\_train* dataset files  were then read as dataframes in R, and column names were attached to each, using the previously obtained ***features.vec***.  
 
 ##### STEP 4:  COLUMN-BIND x\_test data frame with subject.y\_test data frame.  REPEAT BY COLUMN BIND-ing x\_train dataframe with subject.y\_train data frame
-The new dataframe from the "cbind"ing of x\_test and subject.y\_test data frames was called "***test\_dataset***"  
+The new dataframe from the "cbind"ing of *x\_test* and *subject.y\_test* data frames was called "***test\_dataset***"  
 
-The new dataframe from the "cbind"ing of x\_train and subject.y\_train data frames was called "***train_dataset***"
+The new dataframe from the "cbind"ing of *x\_train* and *subject.y\_train* data frames was called "***train_dataset***"
 
 ##### STEP 5:  ROW-BIND THE test\_data and train\_data DATAFRAMES INTO A MERGED_DATASET
-The resulting data frame from the row-binding (rbind) of the test\_dataset and the train\_dataset was called "**Merged_Dataset**"
+The resulting data frame from the row-binding (rbind) of the *test\_dataset* and the *train\_dataset* was called "**Merged_Dataset**"
 
 ##### STEP 6:  ASSEMBLE "ACTIVITY_LABELS" DATA FRAME MATCHING ACTIVITYID WITH ACTIVITY NAME
 The activity labels data frame has two columns containing the "ActivityID" and "Activity" (i.e., activity name).
@@ -53,7 +58,7 @@ The "dplyr" package was used to properly arrange the columns of the Merged_Datas
 
 ##### STEP 8:  EXTRACT FROM MERGED\_DATASET, THE COLUMNS OF MEAN AND STD DEVIATION VARIABLES FOR EACH MEASUREMENT 
 
-The *dplyr* package in combination with regular expressions was used to extract the needed data containing means and standard deviations.
+The *dplyr* package in combination with regular expressions was used to extract the needed data containing means and standard deviations ("mean" and "std).
 
 The data frame containing the extracted column names was called **"Extracted\_Dataset"**.  
 
@@ -69,6 +74,7 @@ for Activity.
 
 
 The "***Activity***" column of the Extracted_Dataset was also formalized as a factor with 6 levels of "activities"
+
 
 ##### STEP 9:  CREATE SECOND, INDEPENDENT (initially, "***PreFinal\_TidyData***" ) WITH THE AVERAGE OF EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJET
 The *dplyr* package was again used to conveniently obtain the averages of the column variables, according to Activity and SubjectID.  The new dataframe was called "***PreFinal_TidyData***".  

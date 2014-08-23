@@ -149,9 +149,9 @@
 			levels=activities, labels=activities)
 
 
-## STEP 9:  CREATE SECOND, INDEPENDENT (FINAL) TIDY DATA SET WITH THE AVERAGE OF 
+## STEP 9:  CREATE SECOND, INDEPENDENT (initially named, "PreFinal_TidyData") TIDY DATA SET WITH THE AVERAGE OF 
 ## 		EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJECT *dplyr package used
-##		(This is called "PreFinal_TidyData" DF, which must still undergo 
+##		(The "PreFinal_TidyData" DF, must still undergo 
 ##			text processing of column names in Step 10, as explained in README.md )
 
 	PreFinal_TidyData <- Extracted_Dataset %>%
@@ -163,7 +163,7 @@
 ## STEP 10: REPLACE COLUMN NAMES OF FINAL_TIDYDATA WITH MORE DESCRIPTIVE
 ## 		LABELS COMPLYING REQUIREMENTS FOR TIDY DATA (HUMAN READABLE, NO DOTS/SYMBOLS,...)
 ##		(stringr package and regular expressions used).Please see README
-##		THEN MAKE THE "Final_TidyData" DATAFRAME
+##		THEN FINALIZE TO MAKE THE "Final_TidyData" DATAFRAME
 
 	# stringr package used to manipulate column titles (package has already been called above)
 		
