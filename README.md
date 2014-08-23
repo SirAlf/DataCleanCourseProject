@@ -60,7 +60,7 @@ Once this was done, the "activity_labels" DF was merged with the *Merged\_Datase
 
 >The "*dplyr*" package was then used to properly arrange the columns of the *Merged_Dataset*, as follows:.    
 * The **`arrange()`** command was used to arrange the rows of the dataframe, according to the "merging index" (previously defined), thus preserving the original row order.  Preserving the row order before and after merging is important to get the right dataframe.    
-* The **`select()`** command was used to get the needed columns for SubjectID, and all the remaining columns which were extracted by regular expressions containing "t",  "f" and "a".   The command also exluded the column for  *ActivityID* by the argument, `-ActivityID`.  The *ActivityID* column was excluded, because it was no longer necessary with the presence of the "*Activity*" (name) column (obtained from the **`merge`** operation described above).
+* The **`select()`** command was used to get the needed columns for SubjectID, and all the remaining columns which were extracted by regular expressions containing "t",  "f" and "a".   The command also exluded the column for  *ActivityID* by the "negative sign" in the argument, `-ActivityID`.  The *ActivityID* column was excluded, because it was no longer necessary with the presence of the "*Activity*" (name) column (obtained from the **`merge`** operation described above).
 
 
 ##### STEP 8:  EXTRACT FROM MERGED\_DATASET, THE COLUMNS OF MEAN AND STD DEVIATION VARIABLES FOR EACH MEASUREMENT 
