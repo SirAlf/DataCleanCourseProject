@@ -40,7 +40,6 @@ The *X\_test* and *X\_train* dataset files  were then read as dataframes in R, a
 
 ##### STEP 4:  COLUMN-BIND x\_test data frame with subject.y\_test data frame.  REPEAT BY COLUMN BIND-ing x\_train dataframe with subject.y\_train data frame
 The new dataframe from the "cbind"ing of *x\_test* and *subject.y\_test* data frames was called "***test\_dataset***"  
-
 The new dataframe from the "cbind"ing of *x\_train* and *subject.y\_train* data frames was called "***train_dataset***".  
 
 
