@@ -52,37 +52,47 @@ This was used to properly match Activity (name) with ActivityID's in the Merged_
 
 ##### STEP 7:  ADD COLUMN OF ACTIVITY NAME ("ACTIVITY") TO MERGED\_DATASET BY MERGING IT WITH ACTIVITY_LABELS DATA FRAME (from STEP 6)
 
->The row order after merging was preserved by using a merging "index", which was added as a column in the Merged\_Dataset.  
-After merging, the Merged\_Dataset would already contain the column of "Activity" (i.e., activity names)
-The "dplyr" package was used to properly arrange the columns of the Merged_Dataset, including the exclusion of ActivityID (which was no longer necessary with the presence of the "Activity" (name) column).
+>First, a *merging "index" column* was added into the *Merged\_Dataset*, in order to preserve the row order of the *Merged\_Dataset* dataframe when the `merge` function is  applied.  Then the "activity_labels" DF was merged to the *Merged\_Dataset* DF.  
+
+>After merging, the *Merged\_Dataset* would already contain the column of "Activity" (i.e., activity names).   
+
+>The "*dplyr*" package was then used to properly arrange the columns of the *Merged_Dataset*, as follows:.    
+* The `arrange()` command was used to arrange the rows of the dataframe, according to the "merging index" (previously defined), thus preserving the original row order.  Preserving the row order before and after merging is important to get the right dataframe.    
+* The `select()` command was used to properly arrange the columns, and to exclude the column for  *ActivityID*.  The *ActivityID* column was no longer necessary with the presence of the "*Activity*" (name) column that was obtained by the `merge` operation described above.
 
 ##### STEP 8:  EXTRACT FROM MERGED\_DATASET, THE COLUMNS OF MEAN AND STD DEVIATION VARIABLES FOR EACH MEASUREMENT 
 
->The *dplyr* package in combination with regular expressions was used to extract the needed data containing means and standard deviations ("mean" and "std).
+>The *dplyr* package in combination with regular expressions was used to extract the needed data containing means and standard deviations ("mean" and "std) as follows:  
+* The `select()` command was used to ***get*** the columns for: (1) *SubjectID*, (2) *Activity*, (3) columns containing the regular expression "*.[Mm]ean*." , (4) columns containing the regular expression "*.std.*", ***and to exclude*** columns containing "*angle*" and "*Freq*".  As mentioned in my CodeBook, data columns for "*Angle*" and "*Freq*" were not included since they are calculated data, and not "*measurement signals*".  Only *measurement signals* were taken in the making of the  tidy data.   
 
 >The data frame containing the extracted column names was called **"Extracted\_Dataset"**.  
 
 
->**NOTE** :  As mentioned in the Code Book, only the mean and standard deviations for "*measurment signals*" (also explained in the Code Book)
-were taken.   
+>**NOTE** :  As mentioned in my Code Book, only the mean and standard deviations for "*measurment signals*" were taken. (Please refer to my CodeBook for details).   
 
->This means that column names with mean and std's for "Angle" and "Freq" were not included, because by definition (in my Code Book), these were computed values, 
-rather than "measurement signals".  
+>This column names with mean and std's for "*Angle*" and "*Freq*" were not included, because by definition (in my Code Book), these were computed values, 
+and not "*measurement signals*".  
 
->Thus the total number of columns is 68, broken down into 66 (mean and std) feature columns ("measurement signals"), 1 column for SubjectID*** and 1 column
+>Thus the total number of columns is **68**, broken down into **66** (mean and std) feature columns (of "*measurement signals*"), **1** column for *SubjectID* and **1** column
 for Activity.  
 
 
 >The "***Activity***" column of the Extracted_Dataset was also formalized as a factor with 6 levels of "activities"
 
 
-##### STEP 9:  CREATE SECOND, INDEPENDENT (initially, "***PreFinal\_TidyData***" ) WITH THE AVERAGE OF EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJET
->The *dplyr* package was again used to conveniently obtain the averages of the column variables, according to Activity and SubjectID.  The new dataframe was called "***PreFinal_TidyData***".  
+##### STEP 9:  CREATE SECOND, INDEPENDENT TIDY DATASET (initially named, "***PreFinal\_TidyData***" ) WITH THE AVERAGE OF EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJECTID
+>The *dplyr* package was again used to conveniently obtain the averages (i.e., the *mean(s)* of the column variables in the ***Extracted\_Dataset***, arranged according to *Activity* and *SubjectID*, and then saving the results into a new dataframe (called, ***PreFinal\_TidyData***) as follows:   
+*   The `group_by()` command was first used to arrange the rows of the ***Extracted\_Dataset*** according to *SubjectID* and *Activity* (i.e., activity name).  
+* The `summarise_each(funs(mean))` command was then used to compute the means of the feature columns that were already previously arranged according to *SubjectID* and *Activity*.   
+* Finally, the `arrange()` command was used to make the primary ordering of the rows according to *Activity*
 
->In preparation for making the Final Tidy Data, the column names were modified in order to comply with the requirements for tidy data, i.e.: (1) *human readable*, (2) *no punctuations and/or symbols*.   
+>As mentioned previously, the new dataframe was called "***PreFinal_TidyData***".  
+
+>In preparation for making the ***Final\_TidyData***, the column names were modified in order to comply with the requirements for tidy data, i.e.: (1) *human readable*, (2) *no punctuations and/or symbols*.   
 
 >All forms of punctuation in the original column names were removed, and modified to make it more human readable.  
 This resulted in very long file names, and thus *CamelCase* was used to improve readability.  Modification of column names were done by text manipulation via the stringr package.  These operations were done in Step 10.
+
 
 ##### STEP 10: REPLACE COLUMN NAMES OF FINAL_TIDYDATA WITH MORE DESCRIPTIVE LABELS COMPLYING REQUIREMENTS FOR TIDY DATA:  TEXT MANIPULATION VIA stringr PACKAGE ---> THEN FINALIZE "***Final\_TidyData***"
 
