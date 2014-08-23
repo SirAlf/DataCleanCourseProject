@@ -14,7 +14,7 @@
 	print("Unzipping file, please wait ... ")
 	unzip("projectData.zip") 
 		# Unzip will extract "UCI HAR Dataset" to working dir
-	unlink("projectData.zip")
+	unlink("projectData.zip")  #After "unzip"-ing, unlink can remove projectData.zip as this has become unnecessary
 	DateDownloaded <- date()
 	print("File successfully loaded on")
 	print(DateDownloaded)
