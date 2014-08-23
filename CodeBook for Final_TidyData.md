@@ -129,12 +129,12 @@ Total columns for standard deviations of measurement signals should be equal to 
 * fBodyGyroMag-std()
 * fBodyGyroJerkMag-std()
 
-The tidy data set has a total of 2 (SubjectID, Activity) plus 66 or a **total of 68 columns or fields**.
+The tidy data set has a total of **2** ("SubjectID" and "Activity") plus **66** feature names of only the *measurement signals", as defined previously above in this CodeBook,  for a **total of 68 columns** or fields.
 
-The rows of the tidy data correspond to the mean of the measurement signals according to Activity and SubjectID.
+The **180 rows** of the tidy data correspond to the mean of the measurement signals according to type of Activity and SubjectID.  (30 "*SubjectID*"'s x 6 "*Activity*"'s = 180 rows)
 
 In compliance with the requirements for tidy data, the variable (ii.e., column) names of the final data set were then **converted to "human readable form"** (with no punctuations of any kind) via the *stringr* package.  
-***CamelCase*** was also applied to column names in order to improve readability.   
+***CamelCase*** was also applied to column names in order to improve readability of the long names.   
 The final column names corresponding to the raw data column names are listed below:
 
 * SubjectID
@@ -209,7 +209,9 @@ The final column names corresponding to the raw data column names are listed bel
 ======================================================================
 #### TRANSFORMATIONS ON THE RAW DATA TO PRODUCE THE REQUIRED TIDY DATA (Using dplyr and stringr packages)  
 
-(1) After loading needed packages, and after reading and extracting the files into the working directory, the subject\_test and y\_test dataframes were read (attaching column names of "SubjectID" and "ActivityID" to each data frame), and then column-bind(ed) into a subject.y\_test dataframe.  Similarly, the subject\_train and y\_train dataframes were read (attaching column names of "SubjectID" and "ActivityID" to each data frame), and column-bind(ed) into a subject.y\_train dataframe
+(1) After loading needed packages (*dplyr* and *stringr*), and after reading and extracting the files into the working directory, the ***subject\_test*** and ***y\_test*** dataframes were read (attaching column names of "*SubjectID*" and "*ActivityID*" to each data frame), and then column-bind(ed) into a ***subject.y_test*** dataframe.     
+Similarly, the ***subject\_train*** and ***y\_train*** dataframes were read (attaching column names of "*SubjectID*" and "*ActivityID*" to each data frame), and column-bind(ed) into a ***subject.y\_train*** dataframe.   
+DETAILS can be found in the README.md file, while IMPLEMENTATION in R can be seen in the run.analysis file.
 
 (2) The X\_test and X\_train dataframes were read and column names (obtained from a vector of feature names from the "features" file) were attached.
 
