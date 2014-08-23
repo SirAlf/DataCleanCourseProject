@@ -103,7 +103,7 @@ This resulted in very long file names, and thus *CamelCase* was used to improve 
 Among these are: (1) *human readable names*, (2) *no punctuations and/or symbols*.
 
 >*CamelCase* had to be used because the column names were quite very long.   
-The final dataframe of tidy data was called "***Final_TidyData***".  
+The final dataframe of tidy data was called "***Final_TidyData***",   containing **180 rows** (30 *SubjectID*''s x 6 *Activity*'s) and **68 columns** ( 1 for  *Activity* + 1 for *SubjectID* + *66 for extracted mean and std of measurement signals* (pls refer to CodeBook and README))
 
 ##### STEP 11: SAVE "*Final_TidyData*" DATA SET AS TXT FILE IN WORKING DIRECTORY
 
@@ -111,4 +111,3 @@ The final dataframe of tidy data was called "***Final_TidyData***".
  
 >**NOTE:**  The saved text file can be read back into R by the following command:   
 **`TidyData <- read.table("Final_TidyData.txt", header=TRUE)`**
-
