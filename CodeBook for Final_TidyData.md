@@ -213,7 +213,7 @@ The final column names corresponding to the raw data column names are listed bel
 
 (2) The X\_test and X\_train dataframes were read and column names (obtained from a vector of feature names from the "features" file) were attached.
 
-(3) The subject.y\_test dataframe was column-bind(ed) to the X\_test data frame to form the "test_dataset" dataframe.  Similarly, the subject.y_train dataframe was column-bind(ed) to the X_train data frame to form the "train_dataset" dataframe.
+(3) The subject.y\_test dataframe was column-bind(ed) to the X\_test data frame to form the "test\_dataset" dataframe.  Similarly, the subject.y_train dataframe was column-bind(ed) to the X\_train data frame to form the "train\_dataset" dataframe.
 
 (4) The "test\_dataset" and "train\_datasets" were row-bind(ed) to form the ***Merged_Dataset***.   
  (A column for "Activity", i.e., activity name still needed to be added, and this was done in the next step).
@@ -226,9 +226,9 @@ The final column names corresponding to the raw data column names are listed bel
 (7) From the Extracted\_Dataset, the dplyr package was used to obtain the "second, independent" dataframe containing the average of the values of the column variables.  This dataframe was named "***PreFinal_Dataset***", which still needs to undergo text processing of column names, as explained in step 8.
 
 (8) The column names in the "PreFinal\_Dataset" were converted to conform to requirements of column names for tidy data ("human readable", "no punctuations or symbols").    
-The *stringr* package was used for this purpose.  Since the column names were unusually long, CamelCase had to be used.  The final tidy data was named, "***Final_TidyData***".
+The *stringr* package was used for this purpose.  Since the column names were unusually long, *CamelCase* had to be used.  The final tidy data was named, "***Final_TidyData***".
 
-(9)  The Final_TidyData dataframe was *saved as a text file* in the working directory.  The saved text file can be read back into
-R by the following command: Tidy_Data <- TidyData <- read.table("Final_TidyData.txt", header=TRUE)
-
-
+(9)  The ***Final_TidyData*** dataframe was ***saved as a text file*** in the working directory by using the `write` command with  the `row.names` argument set to `FALSE`, as specified in the Course Project instrujctions.  
+   
+**NOTE:**The saved text file can be read back into
+R by the following command:     `TidyData <- read.table("Final_TidyData.txt", header=TRUE)`
