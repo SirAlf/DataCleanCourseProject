@@ -182,7 +182,7 @@
 		summarise_each(funs(mean)) %>%
 		arrange(Activity)
 
-	# Use stringr package to label column names of PreFinal_TidyData as Averages of the column variable names of PreFinal_TidyData
+	# Use stringr package to relabel column names of PreFinal_TidyData as Averages of the column variable names of PreFinal_TidyData
 		a <- colnames(PreFinal_TidyData)
 		pattern <- "^Time"; a <- str_replace(a, pattern, "AverageTime")
 		pattern <- "^Fourier"; a <- str_replace(a, pattern, "AverageFourier")
