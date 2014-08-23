@@ -60,13 +60,13 @@ Once this was done, the "activity_labels" DF was merged with the *Merged\_Datase
 
 >The "*dplyr*" package was then used to properly arrange the columns of the *Merged_Dataset*, as follows:.    
 * The **`arrange()`** command was used to arrange the rows of the dataframe, according to the "merging index" (previously defined), thus preserving the original row order.  Preserving the row order before and after merging is important to get the right dataframe.    
-* The **`select()`** command was used to properly arrange the columns, and to exclude the column for  *ActivityID*.  The *ActivityID* column was no longer necessary with the presence of the "*Activity*" (name) column that was obtained by the **`merge`** operation described above.
+* The **`select()`** command was used to get the needed columns for SubjectID, and all the remaining columns which were extracted by regular expressions containing "t",  "f" and "a".   The command also exluded the column for  *ActivityID* by the argument, `-ActivityID`.  The *ActivityID* column was excluded, because it was no longer necessary with the presence of the "*Activity*" (name) column (obtained from the **`merge`** operation described above).
 
 
 ##### STEP 8:  EXTRACT FROM MERGED\_DATASET, THE COLUMNS OF MEAN AND STD DEVIATION VARIABLES FOR EACH MEASUREMENT 
 
 >The *dplyr* package in combination with regular expressions was used to extract the needed data containing means and standard deviations ("mean" and "std) as follows:  
-* The **`select()`** command was used to ***get*** the columns for: (1) *SubjectID*, (2) *Activity*, (3) columns containing the regular expression "*.[Mm]ean*." , (4) columns containing the regular expression "*.std.*", (5) all the remaining columns retrieved by regular expressions containing "t", "f", "a",  ***and to exclude*** columns containing "*angle*" and "*Freq*".   As mentioned in my CodeBook, data columns for "*Angle*" and "*Freq*" were not included since they are calculated data, and not "*measurement signals*".  Only *measurement signals* were taken in the making of the  tidy data.   
+* The **`select()`** command was used to ***get*** the columns for: (1) *SubjectID*, (2) *Activity*, (3) columns containing the regular expression "*.[Mm]ean*." , (4) columns containing the regular expression "*.std.*",    ***and to exclude*** the columns containing "*angle*" and "*Freq*".   As mentioned in my CodeBook, data columns for "*Angle*" and "*Freq*" were not included since they are calculated data, and not "*measurement signals*".  Only *measurement signals* were taken in the making of the  tidy data.   
 
 >The data frame containing the extracted column names was called **"Extracted\_Dataset"**.  
 
@@ -110,4 +110,5 @@ The final dataframe of tidy data was called "***Final_TidyData***".
 >The Final_TidyData was converted to a text file named, "Final_TidyData.txt", in compliance with the instructions of the Course Project.  
  
 >**NOTE:**  The saved text file can be read back into R by the following command:   
-`TidyData <- read.table("Final_TidyData.txt", header=TRUE)`
+**`TidyData <- read.table("Final_TidyData.txt", header=TRUE)`**
+
