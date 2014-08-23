@@ -147,7 +147,7 @@
 	Extracted_Dataset$Activity <- factor(Extracted_Dataset$Activity, 
 			levels=activities, labels=activities)
 
-## STEP 9:  RENAME COLUMN NAMES OF Extracted_Dataset INTO MORE DESCRIPTIVE LABELS FOLLOWING
+## STEP 9:  RENAME COLUMN NAMES OF Extracted_Dataset INTO MORE DESCRIPTIVE LABELS
 ##		FOLLOWING THE CONVENTIONS OF NAMING COLUMN NAMES OF TIDY DATA
 
 	# stringr package used to manipulate column titles (package has already been called above)
@@ -174,6 +174,8 @@
 
 ## STEP 10:  CREATE SECOND, INDEPENDENT (initially named, "PreFinal_TidyData") TIDY DATA SET WITH THE AVERAGE OF 
 ## 		EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJECT *dplyr package used
+##		RELABEL COLUMN NAMES TO REFLECT THAT THE VALUES IN THE TIDY DATA ARE AVERAGE VALUES OF COLUMN NAMES
+##		FINALZE RELABELLED PreFinal_TidyData into Final_TidyData
 
 	PreFinal_TidyData <- Extracted_Dataset %>%
 		group_by(Activity, SubjectID) %>%
@@ -187,6 +189,7 @@
 		
 		colnames(PreFinal_TidyData) <- a
 
+	# Make the relabelled PreFinal_TidyData into Final_TidyData
 	Final_TidyData <- PreFinal_TidyData
 
 
