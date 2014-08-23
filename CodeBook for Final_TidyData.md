@@ -211,26 +211,26 @@ The final column names corresponding to the raw data column names are listed bel
 
 (1) After loading needed packages (*dplyr* and *stringr*), and after reading and extracting the files into the working directory, the ***subject\_test*** and ***y\_test*** dataframes were read (attaching column names of "*SubjectID*" and "*ActivityID*" to each data frame), and then column-bind(ed) into a ***subject.y_test*** dataframe.     
 Similarly, the ***subject\_train*** and ***y\_train*** dataframes were read (attaching column names of "*SubjectID*" and "*ActivityID*" to each data frame), and column-bind(ed) into a ***subject.y\_train*** dataframe.   
-DETAILS can be found in the README.md file, while IMPLEMENTATION in R can be seen in the run.analysis file.
+DETAILS can be found in the **README**.md file, while IMPLEMENTATION in R can be seen in the ***run.analysis file***.
 
-(2) The X\_test and X\_train dataframes were read and column names (obtained from a vector of feature names from the "features" file) were attached.
+(2) The ***X\_test*** and ***X\_train*** dataframes were read and column names (obtained from a vector of feature names from the "features.txt" file) were attached.
 
-(3) The subject.y\_test dataframe was column-bind(ed) to the X\_test data frame to form the "test\_dataset" dataframe.  Similarly, the subject.y_train dataframe was column-bind(ed) to the X\_train data frame to form the "train\_dataset" dataframe.
+(3) The *subject.y\_test* dataframe was column-bind(ed) to the *X\_test* data frame to form the "***test\_dataset***" dataframe.  Similarly, the *subject.y\_train* dataframe was column-bind(ed) to the *X\_train* data frame to form the "***train\_dataset***" dataframe.
 
-(4) The "test\_dataset" and "train\_datasets" were row-bind(ed) to form the ***Merged_Dataset***.   
+(4) The "*test\_dataset*" and "*train\_dataset*" were row-bind(ed) to form the ***Merged_Dataset***.   
  (A column for "Activity", i.e., activity name still needed to be added, and this was done in the next step).
 
-(5) The "activity\_labels" file was read and attached with the column names for "Activity" (activity name) and "ActivityID. Using the merge command on the "activity_labels" and "Merged_Dataset" dataframes, a new column for "Activity" was added to the Merged_Dataset.    The dplyr package was used to properly arrange the relevant columns in the Merged_dataset. 
+(5) The "*activity\_labels*" file was read and attached with the column names for "Activity" (activity name) and "ActivityID. Using the merge command on the "activity_labels" and "Merged_Dataset" dataframes, a new column for "Activity" was added to the Merged_Dataset.    The *dplyr* package was used to properly arrange the relevant columns in the *Merged_dataset*. 
 
 (6) The column names containing the mean and standard deviations of the measured signals from the Merged_Dataset  were extracted to give the "***Extracted\_Dataset***" dataframe.     
 (Please refer to README markdown file for basis of selecting the mean and standard deviation columns) The *dplyr* package was convieniently used for this.
 
-(7) From the Extracted\_Dataset, the dplyr package was used to obtain the "second, independent" dataframe containing the average of the values of the column variables.  This dataframe was named "***PreFinal_Dataset***", which still needs to undergo text processing of column names, as explained in step 8.
+(7) From the *Extracted\_Dataset*, the *dplyr* package was used to obtain the "second, independent" dataframe containing the average of the values of the column variables.  This dataframe was named "***PreFinal_Dataset***", which still needs to undergo text processing of column names, as explained in step 8.
 
-(8) The column names in the "PreFinal\_Dataset" were converted to conform to requirements of column names for tidy data ("human readable", "no punctuations or symbols").    
+(8) The column names in the "*PreFinal\_Dataset*" were converted to conform to requirements of column names for tidy data ("human readable", "no punctuations or symbols").    
 The *stringr* package was used for this purpose.  Since the column names were unusually long, *CamelCase* had to be used.  The final tidy data was named, "***Final_TidyData***".
 
-9) The Final_TidyData dataframe was saved as a text file in the working directory by using the write command with the row.names argument set to FALSE, as specified in the Course Project instructions.
+9) The *Final_TidyData* dataframe was saved as a text file in the working directory by using the write command with the row.names argument set to FALSE, as specified in the Course Project instructions.
 
 **NOTE:**  The saved text file can be read back into R by the following command:   
 `TidyData <- read.table("Final_TidyData.txt", header=TRUE)`
