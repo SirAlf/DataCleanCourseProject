@@ -78,7 +78,7 @@ The following vectors were also obtained and used on the angle() variable:
 ***Since angle() is a calculated quantity(rather than a measurement signal), it was NOT INCLUDED as a measurement signal.***
 
 ========================================================================   
-### COLUMN VARIABLES (FIELDS) IN THE **TIDY DATA SET** 
+### COLUMN VARIABLES (FIELDS) IN THE FIRST **Extacted_Dataset** 
 
 (1) **SubjectID**:  This corresponds to the 30 participants of the experiment.
 
@@ -207,31 +207,109 @@ The final column names corresponding to the raw data column names are listed bel
 * FourierTransformBodyGyrometerJerkSignalMagnitudeStandardDeviation 
 
 ======================================================================
+### COLUMN VARIABLES (FIELDS) IN THE  **Final_TidyData**
+
+The column names of the ***Final\_TidyData*** are analogous to the column names of the *Extracted\_Dataset*, the difference being, that the values in the *Final\_TidyData* are mean or average values.
+
+The following is the list of the column names for the Final_TidyData. 
+
+* SubjectID
+* Activity
+* AverageTimeDependentBodyAccelerometerSignalMeanAtXaxis
+* AverageTimeDependentBodyAccelerometerSignalMeanAtYaxis
+* AverageTimeDependentBodyAccelerometerSignalMeanAtZaxis
+* AverageTimeDependentGravityAccelerometerSignalMeanAtXaxis
+* AverageTimeDependentGravityAccelerometerSignalMeanAtYaxis
+* AverageTimeDependentGravityAccelerometerSignalMeanAtZaxis
+* AverageTimeDependentBodyAccelerometerJerkSignalMeanAtXaxis
+* AverageTimeDependentBodyAccelerometerJerkSignalMeanAtYaxis
+* AverageTimeDependentBodyAccelerometerJerkSignalMeanAtZaxis
+* AverageTimeDependentBodyGyrometerSignalMeanAtXaxis
+* AverageTimeDependentBodyGyrometerSignalMeanAtYaxis
+* AverageTimeDependentBodyGyrometerSignalMeanAtZaxis
+* AverageTimeDependentBodyGyrometerJerkSignalMeanAtXaxis
+* AverageTimeDependentBodyGyrometerJerkSignalMeanAtYaxis
+* AverageTimeDependentBodyGyrometerJerkSignalMeanAtZaxis
+* AverageTimeDependentBodyAccelerometerSignalMeanMagnitude 
+* AverageTimeDependentGravityAccelerometerSignalMeanMagnitude 
+* AverageTimeDependentBodyAccelerometerJerkSignalMeanMagnitude 
+* Average TimeDependentBodyGyrometerSignalMeanMagnitude 
+* AverageTimeDependentBodyGyrometerJerkSignalMeanMagnitude 
+* AverageFourierTransformBodyAccelerometerSignalMeanAtXaxis
+* AverageFourierTransformBodyAccelerometerSignalMeanAtYaxis
+* AverageFourierTransformBodyAccelerometerSignalMeanAtZaxis
+* AverageFourierTransformBodyAccelerometerJerkSignalMeanAtXaxis
+* AverageFourierTransformBodyAccelerometerJerkSignalMeanAtYaxis
+* AverageFourierTransformBodyAccelerometerJerkSignalMeanAtZaxis
+* AverageFourierTransformBodyGyrometerSignalMeanAtXaxis
+* AverageFourierTransformBodyGyrometerSignalMeanAtYaxis
+* AverageFourierTransformBodyGyrometerSignalMeanAtZaxis
+* AverageFourierTransformBodyAccelerometerSignalMeanMagnitude 
+* AverageFourierTransformBodyAccelerometerJerkSignalMeanMagnitude 
+* AverageFourierTransformBodyGyrometerSignalMeanMagnitude 
+* AverageFourierTransformBodyGyrometerJerkSignalMeanMagnitude 
+* AverageTimeDependentBodyAccelerometerSignalStandardDeviationAtXaxis
+* AverageTimeDependentBodyAccelerometerSignalStandardDeviationAtYaxis
+* AverageTimeDependentBodyAccelerometerSignalStandardDeviationAtZaxis
+* AverageTimeDependentGravityAccelerometerSignalStandardDeviationAtXaxis
+* AverageTimeDependentGravityAccelerometerSignalStandardDeviationAtYaxis
+* AverageTimeDependentGravityAccelerometerSignalStandardDeviationAtZaxis
+* AverageTimeDependentBodyAccelerometerJerkSignalStandardDeviationAtXaxis
+* AverageTimeDependentBodyAccelerometerJerkSignalStandardDeviationAtYaxis
+* AverageTimeDependentBodyAccelerometerJerkSignalStandardDeviationAtZaxis
+* AverageTimeDependentBodyGyrometerSignalStandardDeviationAtXaxis
+* AverageTimeDependentBodyGyrometerSignalStandardDeviationAtYaxis
+* AverageTimeDependentBodyGyrometerSignalStandardDeviationAtZaxis
+* AverageTimeDependentBodyGyrometerJerkSignalStandardDeviationAtXaxis
+* AverageTimeDependentBodyGyrometerJerkSignalStandardDeviationAtYaxis
+* AverageTimeDependentBodyGyrometerJerkSignalStandardDeviationAtZaxis
+* AverageAverageTimeDependentBodyAccelerometerSignalMagnitudeStandardDeviation 
+* AverageTimeDependentGravityAccelerometerSignalMagnitudeStandardDeviation 
+* AverageTimeDependentBodyAccelerometerJerkSignalMagnitudeStandardDeviation 
+* AverageTimeDependentBodyGyrometerSignalMagnitudeStandardDeviation 
+* AverageTimeDependentBodyGyrometerJerkSignalMagnitudeStandardDeviation 
+* AverageFourierTransformBodyAccelerometerSignalStandardDeviationAtXaxis
+* AverageFourierTransformBodyAccelerometerSignalStandardDeviationAtYaxis
+* AverageFourierTransformBodyAccelerometerSignalStandardDeviationAtZaxis
+* AverageFourierTransformBodyAccelerometerJerkSignalStandardDeviationAtXaxis
+* AverageFourierTransformBodyAccelerometerJerkSignalStandardDeviationAtYaxis
+* AverageFourierTransformBodyAccelerometerJerkSignalStandardDeviationAtZaxis
+* AverageFourierTransformBodyGyrometerSignalStandardDeviationAtXaxis
+* AverageFourierTransformBodyGyrometerSignalStandardDeviationAtYaxis
+* AverageFourierTransformBodyGyrometerSignalStandardDeviationAtZaxis
+* AverageFourierTransformBodyAccelerometerSignalMagnitudeStandardDeviation 
+* AverageFourierTransformBodyAccelerometerJerkSignalMagnitudeStandardDeviation 
+* AverageFourierTransformBodyGyrometerSignalMagnitudeStandardDeviation 
+* AverageFourierTransformBodyGyrometerJerkSignalMagnitudeStandardDeviation 
+
+
+
+======================================================================
 #### TRANSFORMATIONS ON THE RAW DATA TO PRODUCE THE REQUIRED TIDY DATA (Using dplyr and stringr packages)  
 
 (1) After loading needed packages (*dplyr* and *stringr*), and after reading and extracting the files into the working directory, the ***subject\_test*** and ***y\_test*** dataframes were read (attaching column names of "*SubjectID*" and "*ActivityID*" to each data frame), and then column-bind(ed) into a ***subject.y_test*** dataframe.     
 Similarly, the ***subject\_train*** and ***y\_train*** dataframes were read (attaching column names of "*SubjectID*" and "*ActivityID*" to each data frame), and column-bind(ed) into a ***subject.y\_train*** dataframe.   
-DETAILS can be found in the **README**.md file, while IMPLEMENTATION in R can be seen in the ***run.analysis file***.
+DETAILS can be found in the **README**.md file, while IMPLEMENTATION in R can be seen in the ***run.analysis*** file. In the *run\_analysis script*, this corresponds to the Preliminary Step until Step 2.   
 
-(2) The ***X\_test*** and ***X\_train*** dataframes were read and column names (obtained from a vector of feature names from the "features.txt" file) were attached.
+(2) The ***X\_test*** and ***X\_train*** dataframes were read and column names (obtained from a vector of feature names from the "features.txt" file) were attached. (In the *run\_analysis script*, this corresponds to Step 3).  
 
-(3) The *subject.y\_test* dataframe was column-bind(ed) to the *X\_test* data frame to form the "***test\_dataset***" dataframe.  Similarly, the *subject.y\_train* dataframe was column-bind(ed) to the *X\_train* data frame to form the "***train\_dataset***" dataframe.
+(3) The *subject.y\_test* dataframe was column-bind(ed) to the *X\_test* data frame to form the "***test\_dataset***" dataframe.  Similarly, the *subject.y\_train* dataframe was column-bind(ed) to the *X\_train* data frame to form the "***train\_dataset***" dataframe. (In the r*run\_analysis script*, this corresponds to Step 4).  
 
 (4) The "*test\_dataset*" and "*train\_dataset*" were row-bind(ed) to form the ***Merged_Dataset***.   
- (A column for "Activity", i.e., activity name still needed to be added, and this was done in the next step).
+ (A column for "Activity", i.e., activity name still needed to be added, and this was done in the next step).  In the *run\_analysis script*, this corresponds to Step 5.  
 
-(5) The "*activity\_labels*" file was read and attached with the column names for "Activity" (activity name) and "ActivityID. Using the merge command on the "activity_labels" and "Merged_Dataset" dataframes, a new column for "Activity" was added to the Merged_Dataset.    The *dplyr* package was used to properly arrange the relevant columns in the *Merged_dataset*. 
+(5) The "*activity\_labels*" file was read and attached with the column names for "Activity" (activity name) and "ActivityID. Using the merge command on the "activity_labels" and "Merged_Dataset" dataframes, a new column for "Activity" was added to the Merged_Dataset.    The *dplyr* package was used to properly arrange the relevant columns in the *Merged_dataset*.  In the *run\_analysis script*, this corresponds to Step 6 and Step 7.  
 
 (6) The column names containing the mean and standard deviations of the measured signals from the Merged_Dataset  were extracted to give the "***Extracted\_Dataset***" dataframe.     
-(Please refer to README markdown file for basis of selecting the mean and standard deviation columns) The *dplyr* package was convieniently used for this.
+(Please refer to README markdown file for basis of selecting the mean and standard deviation columns) The *dplyr* package was convieniently used for this.  In the *run\_analysis script*, this correponds to Step 8).  
 
-(7) From the *Extracted\_Dataset*, the *dplyr* package was used to obtain the "second, independent" dataframe containing the average of the values of the column variables.  This dataframe was named "***PreFinal_Dataset***", which still needs to undergo text processing of column names, as explained in step 8.
+(7) The column names in the "*Extracted\_Dataset*" were converted to conform to requirements/conventions of column names for tidy data ("human readable", "no punctuations or symbols").    
+The *stringr* package was used for this purpose.  Since the column names were unusually long, *CamelCase* had to be used.  The resulting data frame with the modified column names was an *updated* Extracted_Dataset.  In the *run\_analysis script*, this corresponds to Step 9.
 
-(8) The column names in the "*PreFinal\_Dataset*" were converted to conform to requirements of column names for tidy data ("human readable", "no punctuations or symbols").    
-The *stringr* package was used for this purpose.  Since the column names were unusually long, *CamelCase* had to be used.  The final tidy data was named, "***Final_TidyData***".
+(9) A second independent tidy data (initially named, ***PreFinal\_TidyData***),  containing the means or average of the data measurement columns for each *Activity* and *SubjectID* in the *Extracted\_Dataset* was created (using the dplyr package).  Then the *PreFinal\_TidyData* column names were relabelled in order to reflect that the values in this new dataframe were mean or average values.  The *stringr* package was used for text processing of the column names.  
+ Finally, the relabelled  *PreFinal\_TidyData* DF was finallized as the ***Final\_TidyData***.  In the *run\_analysis script*, this corresponds to Step 10.   
 
-9) The *Final_TidyData* dataframe was saved as a text file in the working directory by using the write command with the row.names argument set to FALSE, as specified in the Course Project instructions.
+(10)  The *Final_TidyData* dataframe was saved as a text file in the working directory by using the write command with the row.names argument set to FALSE, as specified in the Course Project instructions. In the *run\_analysis script*, this corresonds to Step 11.
 
 **NOTE:**  The saved text file can be read back into R by the following command:   
-`TidyData <- read.table("Final_TidyData.txt", header=TRUE)`
-
+***`TidyData <- read.table("Final_TidyData.txt", header=TRUE)`***

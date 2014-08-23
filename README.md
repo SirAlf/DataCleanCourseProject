@@ -83,7 +83,7 @@ and not "*measurement signals*".
 
 ##### STEP 9: RENAME COLUMN NAMES OF Extracted_Dataset INTO MORE DESCRIPTIVE LABELS FOLLOWING THE CONVENTIONS OF NAMING COLUMN NAMES OF TIDY DATA  
 
->The *stringr* package (particularly the **`str_replace`** and the **`str_replace_all`** commands) was used to convert the raw column names of the Extracted\_Dataset,  into those which comply with the requirements/conventions for naming of tidy data column names :
+>The *stringr* package (particularly the **`str_replace`** and the **`str_replace_all`** commands) was used to convert the raw column names of the *Extracted\_Dataset*,  into those which comply with the requirements/conventions for naming of tidy data column names :
 Among these are: (1) *human readable names*, (2) *no punctuations and/or symbols*.
 
 >*CamelCase* had to be used in order to improve readability, because the column names that resulted were quite very long.   
