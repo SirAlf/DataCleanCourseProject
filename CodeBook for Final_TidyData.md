@@ -129,7 +129,7 @@ Total columns for standard deviations of measurement signals should be equal to 
 * fBodyGyroMag-std()
 * fBodyGyroJerkMag-std()
 
-The tidy data set has a total of **2** ("SubjectID" and "Activity") plus **66** feature names (33 "mean" + 33 "std") of only the *measurement signals", as defined previously above in this CodeBook,  for a **total of 68 columns** or fields.
+The tidy data set has a total of **2** ("SubjectID" and "Activity") plus **66** feature names (33 "mean" + 33 "std") of only the *measurement signals*, as defined previously above in this CodeBook,  for a **total of 68 columns** or fields.
 
 The **180 rows** of the tidy data correspond to the mean of the measurement signals according to type of Activity and SubjectID.  (30 "*SubjectID*"'s x 6 "*Activity*"'s = 180 rows)
 
