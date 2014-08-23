@@ -134,7 +134,7 @@ The tidy data set has a total of 2 (SubjectID, Activity) plus 66 or a **total of
 The rows of the tidy data correspond to the mean of the measurement signals according to Activity and SubjectID.
 
 In compliance with the requirements for tidy data, the variable (ii.e., column) names of the final data set were then **converted to "human readable form"** (with no punctuations of any kind) via the *stringr* package.  
-*CamelCase* was also applied to column names in order to improve readability.   
+***CamelCase*** was also applied to column names in order to improve readability.   
 The final column names corresponding to the raw data column names are listed below:
 
 * SubjectID
@@ -223,7 +223,7 @@ The final column names corresponding to the raw data column names are listed bel
 (6) The column names containing the mean and standard deviations of the measured signals from the Merged_Dataset  were extracted to give the "***Extracted\_Dataset***" dataframe.     
 (Please refer to README markdown file for basis of selecting the mean and standard deviation columns) The *dplyr* package was convieniently used for this.
 
-(7) From the Extracted\_Dataset, the dplyr package was used to obtain the "second, independent" dataframe containing the average of the values of the column variables.  This dataframe was named "***PreFinal_Dataset***".
+(7) From the Extracted\_Dataset, the dplyr package was used to obtain the "second, independent" dataframe containing the average of the values of the column variables.  This dataframe was named "***PreFinal_Dataset***", which still needs to undergo text processing of column names, as explained in step 8.
 
 (8) The column names in the "PreFinal\_Dataset" were converted to conform to requirements of column names for tidy data ("human readable", "no punctuations or symbols").    
 The *stringr* package was used for this purpose.  Since the column names were unusually long, CamelCase had to be used.  The final tidy data was named, "***Final_TidyData***".
