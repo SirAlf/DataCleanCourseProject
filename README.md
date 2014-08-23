@@ -96,5 +96,5 @@ The final dataframe of tidy data was called "***Final_TidyData***".
 
 >The Final_TidyData was converted to a text file named, "Final_TidyData.txt", in compliance with the instructions of the Course Project.  
  
->**NOTE**:  The Text File can be read back to R by the following command:   
-***TidyData <- read.table("Final_TidyData.txt", header=TRUE)***
+>**NOTE:**  The saved text file can be read back into R by the following command:   
+`TidyData <- read.table("Final_TidyData.txt", header=TRUE)`

@@ -228,7 +228,8 @@ The final column names corresponding to the raw data column names are listed bel
 (8) The column names in the "PreFinal\_Dataset" were converted to conform to requirements of column names for tidy data ("human readable", "no punctuations or symbols").    
 The *stringr* package was used for this purpose.  Since the column names were unusually long, *CamelCase* had to be used.  The final tidy data was named, "***Final_TidyData***".
 
-(9)  The ***Final_TidyData*** dataframe was ***saved as a text file*** in the working directory by using the `write` command with  the `row.names` argument set to `FALSE`, as specified in the Course Project instrujctions.  
-   
-**NOTE:**The saved text file can be read back into
-R by the following command:     `TidyData <- read.table("Final_TidyData.txt", header=TRUE)`
+9) The Final_TidyData dataframe was saved as a text file in the working directory by using the write command with the row.names argument set to FALSE, as specified in the Course Project instructions.
+
+**NOTE:**  The saved text file can be read back into R by the following command:   
+`TidyData <- read.table("Final_TidyData.txt", header=TRUE)`
+
