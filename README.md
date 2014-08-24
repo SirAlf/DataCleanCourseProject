@@ -57,7 +57,7 @@ This was used to properly match *Activity* (name) with *ActivityID*'s in the Mer
 
 >First, a *merging "index" column* was added into the *Merged\_Dataset*, in order to preserve the row order of the *Merged\_Dataset* dataframe when the `merge` function is  applied.    Inevitably, the `merge` function will destroy the row order of the merged dataframe (which would not be desirable in this case).
 The orginal row order can be restored by using the "merging index".   
-Once this was done, the "activity_labels" DF was merged with the *Merged\_Dataset* DF.  The merged dataframe was now the "*updated*"  ***Merged\_Dataset** .  
+Once this was done, the "activity_labels" DF was merged with the *Merged\_Dataset* DF.  The merged dataframe was now the "*updated*"  ***Merged\_Dataset*** .  
 
 >After merging, the *Merged\_Dataset* DF would already contain the column of "Activity" (i.e., activity names).   
 
