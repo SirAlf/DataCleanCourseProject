@@ -43,7 +43,7 @@ The dataframes were then "cbind"-ed and the new, combined data frame was called 
 The new dataframe from the "cbind"ing of *x\_train* and *subject.y\_train* data frames was called "***train_dataset***".   
 
 >The   *test_dataset*  dataframe has 2847 rows x 561 columns.  
-The   *test_dataset*  dataframe has 7352 rows x 561 columns. 
+The   *train_dataset*  dataframe has 7352 rows x 561 columns. 
 
 
 ##### STEP 5:  ROW-BIND THE test\_data and train\_data DATAFRAMES INTO A MERGED_DATASET
@@ -87,9 +87,10 @@ and not "*measurement signals*".
 ##### STEP 9: RENAME COLUMN NAMES OF Extracted_Dataset INTO MORE DESCRIPTIVE LABELS FOLLOWING THE CONVENTIONS OF NAMING COLUMN NAMES OF TIDY DATA  
 
 >The *stringr* package (particularly the **`str_replace`** and the **`str_replace_all`** commands) was used to convert the raw column names of the *Extracted\_Dataset*,  into those which comply with the requirements/conventions for naming of tidy data column names :
-Among these are: (1) *human readable names*, (2) *no punctuations and/or symbols*.
+Among these are: (1) *human readable names*, (2) *no punctuations and/or symbols*.   
+  Also, the typo errors involving duplication of "Body" in "*fBodyBodyAccJerkMag-std()*",  "*fBodyBodyGyroMag-std()*", and "*ffBodyBodyGyroJerkMag-std()*" were addressed.
 
->*CamelCase* had to be used in order to improve readability, because the column names that resulted were quite very long.   
+>The resulting column names after *stringr* manipulation were quite long, thus ***CamelCase*** had to be used  in order to improve readability.
 
 ##### STEP 10:  CREATE SECOND, INDEPENDENT (initially named, "PreFinal_TidyData") TIDY DATA SET WITH THE AVERAGE OF EACH VARIABLE FOR EACH ACTIVITY AND EACH SUBJECT *dplyr package used. ---> FINALIZE PreFinal\_TidyData INTO Final\_TidyData
 

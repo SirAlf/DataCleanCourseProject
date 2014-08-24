@@ -4,15 +4,15 @@ DataCleanCourseProject
 ### MY CODEBOOK FOR FINAL_TIDY DATA
  
 ===================================================================  
-#### DESCRIPTION OF COLUMN VARIABLES IN ORIGINAL CODEBOOK
+#### DESCRIPTION OF COLUMN VARIABLES IN ORIGINAL CODEBOOK (for better understanding of column variables in the tidy dataset)
 The variables in the raw dataset were distributed across different files as follows:
 
-(1) ActivityID for the test and train datasets (file names are **"y\_test"** and **"y\_train"**).
+(1) *ActivityID* for the test and train datasets (file names are **"y\_test"** and **"y\_train"**).
 The ActivityID's can be translated to Activity names by the accompanying **"activity\_labels"** file. There are 6 ActivityID's corresponding to:     
  1=WALKING, 2=WALKING_UPSTAIRS, 
 3=WALKING_DOWNSTAIRS, 4=SITTING, 5=STANDING, 6=LAYING.
 
-(2) SubjectID for the test and train datasets (**"subject\_test"** and **"subject\_train" files**).
+(2) *SubjectID* for the test and train datasets (**"subject\_test"** and **"subject\_train" files**).
 There are 30 subjects (corresponding to 30 SubjectID's) who participated in the experiment
 
 (3) **"features"** field containing 561 variable names.  These features have been described in the **"features_info"** file in the original data files.  
@@ -124,10 +124,10 @@ Total columns for standard deviations of measurement signals should be equal to 
 * tBodyAccJerkMag-std()
 * tBodyGyroMag-std()
 * tBodyGyroJerkMag-std()
-* fBodyAccMag-std().
-* fBodyAccJerkMag-std()
-* fBodyGyroMag-std()
-* fBodyGyroJerkMag-std()
+* fBodyAccMag-std()   
+* fBodyBodyAccJerkMag-std()  ---> ***typo error**, i.e., duplication of "Body" in ["fBodyBody...std()"]   is **addressed** in **Step 9 of run\_analysis script***    
+* fBodyBodyGyroMag-std()  ---> ***typo error**, i.e., duplication of "Body" in ["fBodyBody...std()"]   is **addressed** in **Step 9 of run\_analysis script***
+* fBodyBodyGyroJerkMag-std()  ---> ***typo error**, i.e., duplication of "Body" in ["fBodyBody...std()"]   is **addressed** in **Step 9 of run\_analysis script***
 
 The tidy data set has a total of **2** ("SubjectID" and "Activity") plus **66** feature names (33 "mean" + 33 "std") of only the *measurement signals*, as defined previously above in this CodeBook,  for a **total of 68 columns** or fields.
 

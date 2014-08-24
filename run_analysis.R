@@ -157,7 +157,7 @@
 	pattern <- "( -)|-"; b <- str_replace_all(b, pattern, "")
 	pattern <- "tBody"; b <- str_replace(b, pattern, "TimeDependentBody")
 	pattern <- "tGravity"; b <- str_replace(b, pattern, "TimeDependentGravity")
-	pattern <- "fBody|fBodyBody"; b <- str_replace(b, pattern, "FourierTransformBody")
+	pattern <- "fBody|fBodyBody"; b <- str_replace(b, pattern, "FourierTransformBody") #addresses typo error of "fBodyBody ..."
 	pattern <- "Acc"; b <- str_replace(b, pattern, "AccelerometerSignal")
 	pattern <- "Gyro"; b <- str_replace(b, pattern, "GyrometerSignal")
 	pattern <- "SignalJerk"; b <- str_replace(b, pattern, "JerkSignal")
