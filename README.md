@@ -66,8 +66,7 @@ Once this was done, the "activity_labels" DF was merged with the *Merged\_Datase
 * The **`select()`** command was used to get the needed columns for SubjectID, and all the remaining columns which were extracted by regular expressions containing "t",  "f" and "a".   The command also exluded the column for  *ActivityID* by the "negative sign" in the argument, `-ActivityID`.  The *ActivityID* column was excluded, because it was no longer necessary with the presence of the "*Activity*" (name) column (obtained from the **`merge`** operation described above).
 
 
-##### STEP 8:  EXTRACT FROM MERGED\_DATASET, THE COLUMNS OF MEAN AND STD DEVIATION VARIABLES FOR EACH OF MEASUREMENT SIGNALS
-
+##### STEP 8:  EXTRACT FROM MERGED\_DATASET, THE COLUMNS CONTAINING MEAN AND STD DEVIATION VARIABLES OF THE MEASUREMENT SIGNALS
 >The *dplyr* package in combination with regular expressions was used to extract the needed data containing means and standard deviations ("mean" and "std) of the measurement signals from the *Merged\_Dataset* as follows:  
 * The **`select()`** command was used to ***get*** the columns for: (1) *SubjectID*, (2) *Activity*, (3) columns containing the regular expression "*.[Mm]ean*." , (4) columns containing the regular expression "*.std.*",    ***and to exclude*** the columns containing "*angle*" and "*Freq*".   As mentioned in my CodeBook, data columns for "*Angle*" and "*Freq*" were not included since they are calculated data, and not "*measurement signals*".  Only *measurement signals* were taken in the making of the  tidy data.   
 
